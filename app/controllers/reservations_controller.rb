@@ -7,8 +7,8 @@ class ReservationsController < ApplicationController
 
     def create
         @reservation = Reservation.new(reservation_params)
-        @reservation.planet = params[:id] # à verif
-        # @reservation.user = ou recupere t on l'user?
+        @reservation.planet_id = params[:id] # à verifier
+        @reservation.user_id = current_user
         if @reservation.save
           redirect_to planet_reservations_path(@reservation)
           # /planets/:planet_id/reservations
