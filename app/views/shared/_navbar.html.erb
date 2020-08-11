@@ -26,9 +26,12 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item mr-3">
-          <%= link_to "Login", new_user_session_path, class: "nav-link", :style=>'color: white;'%>
+        <li class="nav-item dropdown mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= link_to "Join the Spaceship", new_user_session_path, class: "nav-link dropdown-toggle", :style=>'color: white;'%>
         </li>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Login", new_user_session_path, class: "nav-link2" , :style=> ' border-bottom: solid 1px #262626;'%>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link2"%>
       <% end %>
     </ul>
   </div>
