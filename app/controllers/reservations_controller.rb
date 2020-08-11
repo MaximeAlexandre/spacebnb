@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @reservation.status = "pending"
     if @reservation.save
-      redirect_to reservations_path
+      redirect_to tenant_path
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation.save
-    redirect_to reservations_path(@reservation) # ou refresh page / card(javascript)
+    redirect_to redetails_path(@reservation) # ou refresh page / card(javascript)
     # /reservations
   end
 
