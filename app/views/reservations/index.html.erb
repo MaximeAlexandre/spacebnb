@@ -4,8 +4,9 @@
 
 <div>
     <% @reservations.each do |i| %>
-        <p> planet : <%= Planet.find(i.planet_id).name %>, proprietaire: <%= User.find(i.user_id).username %> </p>
+        <p> planet : <%= i.planet.name %>, proprietaire: <%= i.planet.user.username %> </p>
         <p> <%= i.start_date %> - <%= i.end_date %>, status <%= i.status %> </p>
+        <p>-----------</p>
     <% end %>
 </div>
 

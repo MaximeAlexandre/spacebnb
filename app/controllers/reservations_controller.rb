@@ -2,7 +2,8 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update]
 
   def index
-    @reservations = Reservation.all.where(user_id: "#{current_user}")
+    @reservations = Reservation.all.where(user_id: "#{current_user[:id]}")
+    raise
   end
 
   def show
@@ -17,12 +18,13 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     # /planets/:planet_id/reservations
-    @reservation.planet_id = params[:id] # à verifier
-    @reservation.user_id = current_user
+    @reservation.planet_id = params[:planet_id] # à verifier
+    @reservation.user_id = current_user[:id]
+    @reservation.status = "pending"
     if @reservation.save
       redirect_to reservations_path(@reservation)
     else
-      render :new
+      # render "/reservations/new"
     end
   end
 
@@ -42,7 +44,7 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:status, :start_date, :end_date, :user, :planet)
+    params.require(:reservation).permit(:start_date, :end_date)
   end
 end
 
