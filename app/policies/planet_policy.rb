@@ -1,5 +1,11 @@
 class PlanetPolicy < ApplicationPolicy
+  class Scope < Scope
 
+    def resolve
+      scope.all
+    end
+
+  end
     def create?
       return true
     end
@@ -14,10 +20,4 @@ class PlanetPolicy < ApplicationPolicy
       record.user == user
     end
 end
-class Scope < Scope
 
-    def resolve
-      scope.all
-    end
-
-end
