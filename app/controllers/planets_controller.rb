@@ -13,9 +13,11 @@ class PlanetsController < ApplicationController
     @user = User.find(params[:user_id])
     @planet = Planet.new(planet_params)
     @planet.user = @planet
-    @planet.save
-
-
+    if @planet.save
+      redirect_to planet_path(@planet)
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -27,7 +29,7 @@ class PlanetsController < ApplicationController
 
   def update
     @planet.update(planet_params)
-
+  redirect_to planet_path(@planet)
   end
 
   def destroy
