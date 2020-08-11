@@ -1,0 +1,10 @@
+<div class="container">
+<h1> LIST OF PLANETS </h1>
+
+<% if policy(Planet).create? %>
+ <i style="btn-lg btn-primary"> <%= link_to '+ Add a new planet', new_planet_path %> </i>
+<% end %>
+
+</div>
+
+
