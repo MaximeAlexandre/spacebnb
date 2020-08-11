@@ -3,15 +3,17 @@ class ReservationsController < ApplicationController
 
     def new
         @reservation = Reservation.new
+        # /planets/:planet_id/reservations/new
     end
 
     def create
         @reservation = Reservation.new(reservation_params)
+        # /planets/:planet_id/reservations
         @reservation.planet_id = params[:id] # à verifier
         @reservation.user_id = current_user
         if @reservation.save
-          redirect_to planet_reservations_path(@reservation)
-          # /planets/:planet_id/reservations
+          redirect_to reservations_path(@reservation)
+          
         else
           render :new
         end
@@ -22,8 +24,8 @@ class ReservationsController < ApplicationController
 
     def update
         @reservation.save
-        redirect_to planet_reservations_path(@reservation)
-        # /planets/:planet_id/reservations
+        redirect_to reservations_path(@reservation)
+        # /reservations
     end
 
     private

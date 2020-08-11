@@ -7,9 +7,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  # reservation can be updated by the user who own the planet users/:id/reservations/:id/new
-  # or /dashboard/reservations
-  # reservation: new create, edit, update, (show & index)
-  resources :reservations, only: [:show]
+  resources :reservations, only: [:show, :index, :update] # index pour montrer des listes de reservations
   resources :dashboards, only: [:index]
 end
