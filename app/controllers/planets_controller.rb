@@ -16,7 +16,6 @@ class PlanetsController < ApplicationController
     @planet.save
 
 
-    end
   end
 
   def show
