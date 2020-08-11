@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_08_11_093412) do
-=======
 ActiveRecord::Schema.define(version: 2020_08_11_100828) do
->>>>>>> 98c99e2c6c1cbe13476f319291039892d1a61b85
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +38,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_100828) do
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
-<<<<<<< HEAD
-=======
   create_table "reviews", force: :cascade do |t|
     t.integer "note"
     t.string "content"
@@ -55,7 +49,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_100828) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
->>>>>>> 98c99e2c6c1cbe13476f319291039892d1a61b85
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
