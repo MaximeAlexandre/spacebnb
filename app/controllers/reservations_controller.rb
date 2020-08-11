@@ -24,7 +24,7 @@ class ReservationsController < ApplicationController
 
     def update
         @reservation.save
-        redirect_to reservations_path(@reservation)
+        redirect_to reservations_path(@reservation) # ou refresh page / card(javascript)
         # /reservations
     end
 
