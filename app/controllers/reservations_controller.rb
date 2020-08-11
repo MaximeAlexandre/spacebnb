@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update]
 
   def index
-    @reservations = Reservation.all.where(user_id: ("?", current_user))
+    @reservations = Reservation.all.where(user_id: "#{current_user}")
   end
 
   def show
