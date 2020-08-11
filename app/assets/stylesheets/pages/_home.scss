@@ -1,7 +1,6 @@
 // Specific CSS for your home-page
 body {
   background-color: #262626;
-  color: white;
 }
 
 .flex-design {
@@ -13,6 +12,7 @@ body {
 .banner {
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 
 .search-bloc {
@@ -32,6 +32,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
+  color: white;
 }
 
 .learn-more {
