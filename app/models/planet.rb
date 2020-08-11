@@ -1,13 +1,13 @@
 class Planet < ApplicationRecord
   belongs_to :user
   has_many :reservations
-  has_many :reviews, through :reservations
+  has_many :reviews, :through => :reservations
 
-  validates :name, presences: true
-  validates :address, presences: true
-  validates :description, presences: true
-  validates :price, presences: true
-  validates :user_id, presences: true
-  validates :start_date, presences: true
-  validates :end_date, presences: true
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :description, presence: true
+  validates :price, presence: true
+  validates :user_id, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end
