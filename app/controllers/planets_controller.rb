@@ -5,6 +5,10 @@ class PlanetsController < ApplicationController
     @planets = policy_scope(Planet).order(created_at: :desc)
   end
 
+  def indexuser
+    @planets = policy_scope(Planet).where(user_id: "#{current_user[:id]}").order(created_at: :desc)
+  end
+
   def new
     @planet = current_user.planets.new
     authorize @planet

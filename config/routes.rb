@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:new, :create]
     resources :reviews, only: [:new, :create]
   end
-
+  get "/planetsuser", to: "planets#indexuser"
   resources :reservations, only: [:show, :index, :update] # index pour montrer des listes de reservations
   resources :dashboards, only: [:index]
 end
