@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+body {
+  background-color: #262626;
+  color: white;
+}
+
+.flex-design {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-bloc {
+  margin-left: 70px;
+  margin-top: 50px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.design-2 {
+  margin-top: 50px;
+}
+
+.section-1 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.learn-more {
+  padding: 30px;
+  margin-top: 200px;
+}
