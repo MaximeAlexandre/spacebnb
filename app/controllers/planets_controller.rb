@@ -6,7 +6,7 @@ class PlanetsController < ApplicationController
   end
 
   def new
-   @planet = Planet.new
+    @planet = Planet.new
   end
 
   def create
@@ -23,19 +23,17 @@ class PlanetsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
     @planet.update(planet_params)
-  redirect_to planet_path(@planet)
+    redirect_to planet_path(@planet)
   end
 
   def destroy
     @planet.destroy
     redirect_to planets_path
   end
-
 
   private
 
@@ -46,5 +44,4 @@ class PlanetsController < ApplicationController
   def set_planet
     @planet = Planet.find(params[:id])
   end
-
 end
