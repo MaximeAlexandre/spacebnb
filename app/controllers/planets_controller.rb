@@ -10,9 +10,8 @@ class PlanetsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
     @planet = Planet.new(planet_params)
-    @planet.user = @planet
+    @planet.user = current_user
     if @planet.save
       redirect_to planet_path(@planet)
     else
@@ -34,7 +33,7 @@ class PlanetsController < ApplicationController
 
   def destroy
     @planet.destroy
-
+    redirect_to planets_path
   end
 
 
