@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="whiteindex">
+        <h1>Mes reservations a venir</h1>
+        <h2>-----------------------</h2>
+
+        <div>
+            <% @res_futur.each do |i| %>
+                <p> planet : <%= i.planet.name %>, proprietaire: <%= i.planet.user.username %> </p>
+                <p> <%= i.start_date %> - <%= i.end_date %>, status <%= i.status %> </p>
+                <p>-----------</p>
+            <% end %>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="whiteindex">
+        <h1>Mes anciennes reservations</h1>
+        <h2>-----------------------</h2>
+
+        <div>
+            <% @res_past.each do |i| %>
+                <p> planet : <%= i.planet.name %>, proprietaire: <%= i.planet.user.username %> </p>
+                <p> <%= i.start_date %> - <%= i.end_date %>, status <%= i.status %> </p>
+                <p>-----------</p>
+            <% end %>
+        </div>
+    </div>
+</div>
