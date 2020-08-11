@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get "/planetsuser", to: "planets#indexuser"
   resources :reservations, only: [:show, :index, :update] # index pour montrer des listes de reservations
   
-  get "/dashboards/renter", to: "dashboards#renter"
-  get "/dashboards/renter/show", to: "dashboards#show_renter"
-  get "/dashboards/tenant", to: "dashboards#tenant"
-  get "/dashboards/tenant/show" , to: "dashboards#show_tenant"
+  get "/dashboard/renter", to: "dashboard#renter", as: :renter
+  get "/dashboard/renter/annonce_details", to: "dashboard#annonce_details"
+  get "/dashboard/tenant", to: "dashboard#tenant", as: :tenant
+  get "/dashboard/tenant/reservation_details" , to: "dashboard#reservation_details"
 end
 

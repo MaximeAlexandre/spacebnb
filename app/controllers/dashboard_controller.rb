@@ -1,4 +1,4 @@
-class DashboardsController < ApplicationController
+class DashboardController < ApplicationController
 
   def renter
     mes_annonces
@@ -9,10 +9,10 @@ class DashboardsController < ApplicationController
     mes_reservations
   end
 
-  def show_renter
+  def annonce_details
   end
 
-  def show_tenant
+  def reservation_details
   end
 
   private
