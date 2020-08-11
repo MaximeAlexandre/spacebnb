@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand ml-3" do %>
     <%= image_tag "https://image.flaticon.com/icons/svg/1055/1055646.svg" %>
-    <% end %>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,13 +23,13 @@
           </div>
         </li>
       <% else %>
-      <li class="nav-item dropdown mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= link_to "Join the Spaceship", new_user_session_path, class: "nav-link dropdown-toggle", :style=>'color: white;'%>
-      </li>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <%= link_to "Login", new_user_session_path, class: "nav-link2" , :style=> ' border-bottom: solid 1px #262626;'%>
-        <%= link_to "Sign up", new_user_registration_path, class: "nav-link2"%>
-      </div>
+        <li class="nav-item dropdown mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= link_to "Join the Spaceship", new_user_session_path, class: "nav-link dropdown-toggle", :style=>'color: white;'%>
+        </li>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Login", new_user_session_path, class: "nav-link2" , :style=> ' border-bottom: solid 1px #262626;'%>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link2"%>
+        </div>
       <% end %>
     </ul>
   </div>
