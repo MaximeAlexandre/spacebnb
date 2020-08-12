@@ -10,6 +10,7 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @planet = Planet.find(params[:planet_id])
     # /planets/:planet_id/reservations/new
   end
 
