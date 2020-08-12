@@ -1,12 +1,16 @@
-<h1>reservations index</h1>
+<div class="container">
+    <div class="whiteindex">
+        <h1>Mes reservations</h1>
+        <h2>-----------------------</h2>
 
-<h2> all </h1>
-
-<div>
-    <% @reservations.each do |i| %>
-        <p> planet : <%= i.planet.name %>, proprietaire: <%= i.planet.user.username %> </p>
-        <p> <%= i.start_date %> - <%= i.end_date %>, status <%= i.status %> </p>
-        <p>-----------</p>
-    <% end %>
+        <div>
+            <% @reservations.each do |i| %>
+                <p> planet : <%= i.planet.name %>, proprietaire: <%= i.planet.user.username %> </p>
+                <p> <%= i.start_date %> - <%= i.end_date %>, status <%= i.status %> </p>
+                <p>-----------</p>
+            <% end %>
+        </div>
+    </div>
 </div>
+
 
