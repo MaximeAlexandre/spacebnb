@@ -1,24 +1,25 @@
 <div class="container">
-  <h1> LIST OF PLANETS </h1>
+  <h1 class="title"> OUR GALAXY EXERIENCES </h1>
+  <% if policy(Planet).create? %>
+    <a class="btn btn-ghost" href="planets/new ">Add a new planet</a>
 
-  <DIV class="cards">
-      <% @planets.each do |planet| %>
-    <table>
-      <tr>
-          <td> <%=  planet.name %> </td>
-          <td> <%=  planet.description %> </td>
-          <td>
-            <% if policy(Planet).show? %>
-              <i style="btn-lg btn-primary"> <%= link_to 'View details', planet_path(planet) %> </i>
-            <% end %>
-          </td>
-      </tr>
+  <% end %>
+
+  <div class="cards">
+
+    <% @planets.each do |planet| %>
+      <div class="card-category bg-dark" >
+         <%=  planet.name %>
+
+<div class="card-tags">
+       <% if policy(Planet).show? %>
+          <a class="btn btn-flat" href=" planets/<%= planet.id %>" >View détails</a>
+       <% end %>
+</div>
+      </div>
+
     <% end %>
-  </table>
-    <td>
-      <% if policy(Planet).create? %>
-        <i style="btn-lg btn-primary"> <%= link_to '+ Add a new planet', new_planet_path %> </i>
-      <% end %>
-    </td>
-  </DIV>
+
+
+  </div>
 </div>
