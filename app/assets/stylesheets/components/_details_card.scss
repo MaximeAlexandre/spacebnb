@@ -1,0 +1,38 @@
+.card-trip {
+  overflow: hidden;
+  width: 800px;
+  height: 600px;
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 500px;
+  width: 800px;
+  object-fit: cover;
+}
+
+.card-trip p {
+  font-size: 20px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-trip .card-name-description {
+  text-align: center;
+}
+
+.card-trip .card-date-reservation {
+  text-align: center;
+}
+
+.card-trip .card-trip-infos {
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-trip-pricing {
+  text-align: center;
+}
