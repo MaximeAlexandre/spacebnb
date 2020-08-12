@@ -1,4 +1,3 @@
-
 import 'flatpickr/dist/flatpickr.css';
 
 const initFlatpickr = () => {
