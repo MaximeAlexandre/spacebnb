@@ -1,3 +1,12 @@
 <h1>reservations index</h1>
 
-<h2> all reservations where(user_id = current_user) ? </h1>
+<h2> all </h1>
+
+<div>
+    <% @reservations.each do |i| %>
+        <p> planet : <%= i.planet.name %>, proprietaire: <%= i.planet.user.username %> </p>
+        <p> <%= i.start_date %> - <%= i.end_date %>, status <%= i.status %> </p>
+        <p>-----------</p>
+    <% end %>
+</div>
+
