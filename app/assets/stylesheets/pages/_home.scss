@@ -40,3 +40,20 @@ body {
   padding: 30px;
   margin-top: 200px;
 }
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+}
+
+.search-button {
+  width: 100px;
+  text-align: center;
+}
