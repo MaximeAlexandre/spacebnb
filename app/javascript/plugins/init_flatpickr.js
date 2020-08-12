@@ -1,5 +1,9 @@
 import flatpickr from "flatpickr";
+import 'flatpickr/dist/flatpickr.css';
 
 const initFlatpickr = () => {
-  flatpickr(".flatpickr");
+  const flatInstances = document.querySelectorAll('.flatpickr');
+  flatpickr(flatInstances, {});
 }
+
+export {initFlatpickr}

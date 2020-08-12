@@ -2,6 +2,10 @@
 
 <h1> NEW RESERVATION </h1>
 
-
+<%= simple_form_for [@planet, @reservation] do |f| %>
+  <%= f.input :start_date, as: :string, input_html: { class: "flatpickr" } %>
+  <%= f.input :end_date, as: :string, input_html: { class: "flatpickr" } %>
+  <%= f.submit "Book this planet", class: "btn btn-primary" %>
+<% end %>
 
 </div>
