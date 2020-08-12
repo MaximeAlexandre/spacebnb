@@ -28,6 +28,9 @@ import "bootstrap";
 // Internal imports, e.g:
 import { initFlatpickr } from '../plugins/init_flatpickr';
 
+import flatpickr from "flatpickr";
+
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
