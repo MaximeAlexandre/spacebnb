@@ -2,16 +2,17 @@ class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @planets = Planet.all
+    @planets = policy_scope(Planet).order(created_at: :desc)
   end
 
   def new
-    @planet = Planet.new
+    @planet = current_user.planets.new
+    authorize @planet
   end
 
   def create
-    @planet = Planet.new(planet_params)
-    @planet.user = current_user
+    @planet = current_user.planets.new(planet_params)
+    authorize @planet
     if @planet.save
       redirect_to planet_path(@planet)
     else
@@ -43,5 +44,6 @@ class PlanetsController < ApplicationController
 
   def set_planet
     @planet = Planet.find(params[:id])
+    authorize @planet
   end
 end
