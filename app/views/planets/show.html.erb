@@ -11,6 +11,7 @@
 
   <%= link_to 'Edit planet', edit_planet_path(@planet) %> | <%= link_to 'Delete', planet_path(@planet), method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', planets_path %>
 
-
 </div>
+
+<%= link_to '+ Add a new reservation', new_planet_reservation_path(@planet) %>
 
