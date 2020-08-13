@@ -11,6 +11,7 @@ class DashboardController < ApplicationController
   end
 
   def annonce_details
+    @planet = Planet.find(params[:id])
   end
 
   def reservation_details

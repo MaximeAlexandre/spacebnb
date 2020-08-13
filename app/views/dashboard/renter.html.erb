@@ -30,6 +30,7 @@
                   <p class="card-text"><%= planet.description %></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Details planet', andetails_path(planet) %></button>
                       <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Edit planet', edit_planet_path(planet) %></button>
                       <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Delete', planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' } %></button>
                     </div>
