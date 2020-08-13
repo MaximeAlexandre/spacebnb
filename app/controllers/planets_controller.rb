@@ -2,7 +2,9 @@ class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @planets = policy_scope(Planet).order(created_at: :desc)
+    session[:start_date] = params[:start_date_input]
+    session[:end_date] = params[:end_date_input]
+    @planets = Planet.all
   end
 
   def new
