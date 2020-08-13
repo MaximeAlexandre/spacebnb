@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="title"> OUR GALAXY EXERIENCES </h1>
+  <% if policy(Planet).create? %>
+    <a class="btn btn-ghost" href="planets/new ">Add a new planet</a>
+
+  <% end %>
+
+  <div class="cards">
+
+    <% @planets.each do |planet| %>
+      <div class="card-category bg-dark" >
+         <%=  planet.name %>
+
+<div class="card-tags">
+       <% if policy(Planet).show? %>
+          <a class="btn btn-flat" href=" planets/<%= planet.id %>" >View détails</a>
+       <% end %>
+</div>
+      </div>
+
+    <% end %>
+
+
+  </div>
+</div>
