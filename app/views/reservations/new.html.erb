@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1> NEW RESERVATION </h1>
+<h1> NEW RESERVATION for <%= @planet.name  %> </h1>
 
 <%= simple_form_for [@planet, @reservation] do |f| %>
   <%= f.input :start_date, as: :string, input_html: { class: "flatpickr" } %>

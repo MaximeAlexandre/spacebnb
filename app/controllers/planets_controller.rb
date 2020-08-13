@@ -2,7 +2,7 @@ class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
-    @planets = policy_scope(Planet).order(created_at: :desc)
+    @planets = Planet.all
   end
 
   def new

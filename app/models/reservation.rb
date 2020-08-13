@@ -6,7 +6,7 @@ class Reservation < ApplicationRecord
   validates :end_date, presence: true # format date a rajouter?
   validates :status, presence: true # inclusion: { in: %w(pending ... ...),
   # message: "%{value} is not a valid status" }
-  validates :end_date_after_start_date
+  validate :end_date_after_start_date
 
   private
 

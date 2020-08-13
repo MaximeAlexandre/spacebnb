@@ -9,7 +9,7 @@ class Planet < ApplicationRecord
   validates :price, presence: true
   validates :start_date, presence: true # format date a rajouter?
   validates :end_date, presence: true # format date a rajouter?
-  validates :end_date_after_start_date
+  validate :end_date_after_start_date
 
   private
 
