@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  before_action :set_reservation, only: [:reservation_annul]
 
   def renter
     mes_annonces
@@ -8,6 +9,7 @@ class DashboardController < ApplicationController
 
   def tenant
     mes_reservations
+    
   end
 
   def annonce_details
@@ -15,6 +17,12 @@ class DashboardController < ApplicationController
   end
 
   def reservation_details
+  end
+
+  def reservation_annul
+    @reservation.status = "annule"
+    @reservation.save
+    redirect_to tenant_path
   end
 
   private
@@ -36,6 +44,10 @@ class DashboardController < ApplicationController
     @planets_list.each { |i| @planets_ids << i.id }
 
     @res_rec = Reservation.all.where(planet_id: @planets_ids)
+  end
+
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
   end
 end
 

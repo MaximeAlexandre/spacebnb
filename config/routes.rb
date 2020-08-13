@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/dashboard/renter", to: "dashboard#renter", as: :renter
   get "/dashboard/renter/:id/annonce_details", to: "dashboard#annonce_details", as: :andetails
   get "/dashboard/tenant", to: "dashboard#tenant", as: :tenant
-  get "/dashboard/tenant/reservation_details" , to: "dashboard#reservation_details"
+  get "/dashboard/tenant/:id/reservation_details" , to: "dashboard#reservation_details", as: :redetails
+  patch "/dashboard/tenant/:id/", to: "dashboard#reservation_annul", as: :annul
 end
 
