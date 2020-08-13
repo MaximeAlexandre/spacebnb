@@ -2,40 +2,36 @@
 
   <div class="search-bloc">
 
-      <div class="slogan m-4">
-        <div class="title"><h1>Explore and travel</h1></div>
-        <div class="sous-titre"><h3>All around the galaxy</h3></div>
-      </div>
-
-    <div class="search-bar">
-
-      <div class="form-group col-5 date">
-        <label for="example-search-input" class="col-15 col-form-label">Enter a name</label>
-          <div class="col-12 date">
-            <input class="form-control" type="search" value="Galaxy" id="example-search-input">
-          </div>
-      </div>
-
-      <div class="form-group col-4 date">
-        <label for="example-date-input" class="col-3 col-form-label">Start</label>
-          <div class="col-12 date">
-            <input class="form-control" type="date" value="2020-08-19" id="example-date-input">
-          </div>
-      </div>
-
-      <div class="form-group col-4 date">
-        <label for="example-date-input" class="col-2 col-form-label">End</label>
-          <div class="col-12 date">
-            <input class="form-control" type="date" value="2020-08-19" id="example-date-input">
-          </div>
+    <div class="slogan m-4">
+      <div class="title"><h1>Explore and travel</h1></div>
+      <div class="sous-titre"><h3>All around the galaxy</h3></div>
+    </div>
+    <form action="/planets" method="get">
+      <div class="search-bar">
+        <div class="form-group col-5 date">
+          <label for="example-search-input" class="col-15 col-form-label">Enter a Galaxy name</label>
+            <div class="col-12 date">
+              <input id="keyword" type="text" name="galaxy-input" class="form-control ml-auto mr-2" placeholder="Find galaxy">
+            </div>
         </div>
 
-    </div>
+        <div class="form-group col-4 date">
+          <label for="example-date-input" class="col-3 col-form-label">Start</label>
+            <div class="col-12 date">
+              <input class="form-control flatpickr" name="start-date-input" type="date" value="2020-08-19" id="example-date-input">
+            </div>
+        </div>
 
-  <div class="search-button">
-    <%= link_to "Search", planets_path, class: "nav-link", :style=>'color: white;'%>
-  </div>
+        <div class="form-group col-4 date">
+          <label for="example-date-input" class="col-2 col-form-label">End</label>
+            <div class="col-12 date">
+              <input class="form-control flatpickr" name="end-date-input" type="date" value="2020-08-19" id="example-date-input">
+            </div>
+          </div>
+      </div>
 
+      <input type="submit" value="Search" class="search-button">
+    </form>
   </div>
 
     <div class="flex-design">

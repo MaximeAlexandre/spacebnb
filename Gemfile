@@ -35,6 +35,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
 gem 'faker'
+gem 'algoliasearch-rails'
 
 group :development, :test do
   gem 'pry-byebug'

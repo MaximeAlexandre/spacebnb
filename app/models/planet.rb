@@ -3,6 +3,12 @@ class Planet < ApplicationRecord
   has_many :reservations
   has_many :reviews, through: :reservations
 
+  include AlgoliaSearch
+
+  algoliasearch do
+    attributes :address
+  end
+
   validates :name, presence: true
   validates :address, presence: true
   validates :description, presence: true

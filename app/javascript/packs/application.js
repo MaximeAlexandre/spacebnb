@@ -25,7 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import flatpickr from "flatpickr";
-
+// import algoliasearch from 'algoliasearch';
 import { initFlatpickr } from '../plugins/init_flatpickr';
 
 document.addEventListener('turbolinks:load', () => {
@@ -33,3 +33,26 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
 });
 
+// const results = document.querySelector(".results");
+
+// const searchAlgoliaPlaces = (event) => {
+//   const client = algoliasearch('AVCQZ3GIN7', 'f47cfc7b6408bf4df566b1f04a8181f9');
+//   const index = client.initIndex('Planet');
+//   index.search(event.currentTarget.value)
+//     .then(function searchDone(content) {
+//       results.innerHTML = "";
+//       results.classList.remove('d-none');
+//       content.hits.forEach((result) => {
+//         console.log(result)
+//         // const galaxies = `#{result.address}`;
+//         results.insertAdjacentHTML("beforeend", `<p>${result.address}</p>`);
+//       });
+//     })
+//     .catch(function searchFailure(err) {
+//       console.error(err);
+//     });
+// };
+
+
+// const input = document.querySelector("#keyword");
+// input.addEventListener("keyup", searchAlgoliaPlaces);
