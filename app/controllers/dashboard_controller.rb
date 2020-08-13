@@ -23,6 +23,9 @@ class DashboardController < ApplicationController
 
   def mes_reservations
     @reservations = Reservation.all.where(user_id: "#{current_user[:id]}")
+    @res_futur = []
+    @res_past = []
+    @reservations.each { |i| DateTime.now <= i.end_date ? @res_futur << i : @res_past << i }
   end
 
   def reservations_received
