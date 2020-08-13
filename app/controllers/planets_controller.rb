@@ -2,6 +2,8 @@ class PlanetsController < ApplicationController
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   def index
+    session[:start_date] = params[:start_date_input]
+    session[:end_date] = params[:end_date_input]
     @planets = Planet.all
   end
 
