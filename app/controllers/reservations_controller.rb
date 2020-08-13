@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
     @planet = Planet.find(params[:planet_id])
     # /planets/:planet_id/reservations/new
   end
-  
+
   def create
     @reservation = Reservation.new(reservation_params)
     @planet = Planet.find(params[:planet_id])
@@ -48,4 +48,3 @@ class ReservationsController < ApplicationController
     params.require(:reservation).permit(:start_date, :end_date)
   end
 end
-
