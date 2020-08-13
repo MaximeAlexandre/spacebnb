@@ -2,15 +2,23 @@
 
   <div>
     <div>
-
+      <div class="whiteindex">
+        <h1>Mes reservations a venir</h1>
+        <h2>-----------------------</h2>
+        <div>
+          <% @res_rec.each do |i| %>
+              <p> planet : <%= i.planet.name %>, proprietaire: <%= i.planet.user.username %> </p>
+              <p> <%= i.start_date %> - <%= i.end_date %>, status <%= i.status %> </p>
+              <p>-----------</p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div>
 
-    </div>
   </div>
 
   <div>
-  <button>cool</button>
+  <button> <%= link_to "Add planet", new_planet_path %> </button>
   </div>
 
   <div class="m-3">
