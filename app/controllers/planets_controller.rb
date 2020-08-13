@@ -3,6 +3,8 @@ class PlanetsController < ApplicationController
 
   def index
     @planets = policy_scope(Planet).order(created_at: :desc)
+    session[:start_date] = params[:start_date_input]
+    session[:end_date] = params[:end_date_input]
   end
 
   def new

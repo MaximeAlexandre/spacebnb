@@ -1,11 +1,14 @@
-<div class="container">
+<div class="container text-white">
 
-<h1> NEW RESERVATION </h1>
+  <h1> NEW RESERVATION </h1>
 
-<%= simple_form_for [@planet, @reservation] do |f| %>
-  <%= f.input :start_date, as: :string, input_html: { class: "flatpickr" } %>
-  <%= f.input :end_date, as: :string, input_html: { class: "flatpickr" } %>
-  <%= f.submit "Book this planet", class: "btn btn-primary" %>
-<% end %>
-
+  <%= simple_form_for [@planet, @reservation] do |f| %>
+    <%= f.input :start_date, as: :string, input_html: { class: "flatpickr" } %>
+    <%= f.input :end_date, as: :string, input_html: { class: "flatpickr" } %>
+    <div class="d-flex justify-content-between">
+     <p><%= @planet.price %>€ x <%= @number_of_days %> days</p>
+     <p><%= @total_price %>€</p>
+    </div>
+    <%= f.submit "Book this planet", class: "btn-resa" %>
+  <% end %>
 </div>

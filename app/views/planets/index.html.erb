@@ -13,7 +13,8 @@
 
 <div class="card-tags">
        <% if policy(Planet).show? %>
-          <a class="btn btn-flat" href=" planets/<%= planet.id %>" >View détails</a>
+          <!-- <a class="btn btn-flat" href=" planets/<%= planet.id %>" >View détails</a> -->
+          <%= link_to "View details", planet_path(planet), class: "btn btn-flat" %>
        <% end %>
 </div>
       </div>

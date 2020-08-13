@@ -9,8 +9,13 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new
+    start_date = session[:start_date]
+    end_date = session[:end_date]
+    # @number_of_days = (Date.parse end_date) - (Date.parse start_date)
+    @reservation = Reservation.new(start_date: start_date, end_date: end_date)
     @planet = Planet.find(params[:planet_id])
+    @number_of_days = (end_date.to_date - start_date.to_date).to_i
+    @total_price = @number_of_days * @planet.price
     # /planets/:planet_id/reservations/new
   end
 
