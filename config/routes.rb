@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :reservations, only: [:show, :index, :update] # index pour montrer des listes de reservations
   
   get "/dashboard/renter", to: "dashboard#renter", as: :renter
-  get "/dashboard/renter/annonce_details", to: "dashboard#annonce_details"
+  get "/dashboard/renter/:id/annonce_details", to: "dashboard#annonce_details", as: :andetails
   get "/dashboard/tenant", to: "dashboard#tenant", as: :tenant
   get "/dashboard/tenant/reservation_details" , to: "dashboard#reservation_details"
 end

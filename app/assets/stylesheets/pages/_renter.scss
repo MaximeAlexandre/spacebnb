@@ -1,0 +1,16 @@
+.planets-cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-resa {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-new-planet {
+  background-color: #EB8F1B;
+  border-radius: 3px;
+  width: 90%;
+  margin-left: 50px;
+}

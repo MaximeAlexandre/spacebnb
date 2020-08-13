@@ -1,0 +1,37 @@
+
+
+.reservations {
+  display: flex;
+  flex-direction: space-between;
+  text-align: center;
+}
+
+.resa1 {
+  width: 100%;
+}
+
+.scroll-button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-resa {
+  background-color: #EB8F1B;
+  border-radius: 3px;
+  width: 200px;
+  color: white;
+  text-align: center;
+  height: 35px;
+  padding-top: 5px;
+}
+
+h1 {
+  color: #EB8F1B;
+}
+
+.infos {
+  padding-top: 20px;
+  border-top: solid 2px black;
+  width: 80%;
+}
+
