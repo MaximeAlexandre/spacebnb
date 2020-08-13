@@ -6,6 +6,7 @@ class DashboardsController < ApplicationController
   end
 
   def tenant
+    mes_reservations
   end
 
   def show_renter
@@ -20,6 +21,11 @@ class DashboardsController < ApplicationController
     @planets = policy_scope(Planet).where(user_id: "#{current_user[:id]}").order(created_at: :desc)
   end
 
+  def mes_reservations
+    @reservations = Reservation.all.where(user_id: "#{current_user[:id]}")
+  end
+
   def reservations_received
   end
 end
+
