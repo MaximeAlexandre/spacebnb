@@ -8,7 +8,7 @@
 
     <div class="planet-img2 m-2">
         <% if @planet.photo.attached? %>
-          <%= cl_image_tag @planet.photo.key, crop: :scale %>
+          <%= cl_image_tag @planet.photo.key, width: 300, height:300, crop: :scale %>
         <% end %>
     </div>
 
