@@ -4,13 +4,13 @@ class PlanetsController < ApplicationController
   def index
     session[:start_date] = params[:start_date_input]
     session[:end_date] = params[:end_date_input]
-    @planets = Planet.where(address: params[:galaxy_input].capitalize)
     if params[:galaxy_input].present?
       sql_query = "planets.address @@ :galaxy_input"
       @planets = Planet.where(sql_query, galaxy_input: "%#{params[:galaxy_input]}%")
     else
       @planets = Planet.all
     end
+    raise
   end
 
   def new
