@@ -14,6 +14,12 @@ class DashboardController < ApplicationController
 
   def annonce_details
     @planet = Planet.find(params[:id])
+    @reviews = []
+     reservations = Reservation.where(planet_id: @planet.id)
+        reservations.each do |reservation|
+          review = Review.find_by(reservation_id: reservation.id)
+            @reviews << review unless review.nil?
+      end
   end
 
   def reservation_details
