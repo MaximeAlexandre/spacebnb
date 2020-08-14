@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container card col-4 p-3 devise-container">
   <%= simple_form_for(@planet) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -7,8 +7,8 @@
       <%= f.input :address %>
       <%= f.input :description %>
       <%= f.input :price %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
+      <%= f.input :start_date, as: :string, input_html: { class: "flatpickr" } %>
+      <%= f.input :end_date, as: :string, input_html: { class: "flatpickr" } %>
     </div>
     <div class="form-actions">
       <%= f.button :submit %>

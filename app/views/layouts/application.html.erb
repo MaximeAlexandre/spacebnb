@@ -15,11 +15,21 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
-  <body>
+  <style>
+    #particles-js {
+      height: 100%;
+      width: 100%;
+      z-index: -100;
+    }
+  </style>
+  <body id="particles-js">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div id='main-container' style="
+      position: relative;
+      top: 0px;
+    ">
+      <%= yield %>
+    </div>
   </body>
 </html>
