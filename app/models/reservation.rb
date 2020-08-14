@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :planet
+  has_many :reviews, dependent: :destroy
 
   validates :start_date, presence: true # format date a rajouter?
   validates :end_date, presence: true # format date a rajouter?
