@@ -16,9 +16,9 @@
               <p>Planet : <%= i.planet.name %></p>
               <p>Proprietaire: <%= i.planet.user.username %> </p>
               <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
-                <p>Status: <%= i.status %> </p>
-                <%= form_for(:i, :url => valide_path(i), :method => "patch") do |f|%>
-                <%= f.radio_button :reservation_valide, 'valide' %>
+              <p>Status : <%= render :partial => "colorstatus", locals: { i: i } %></p>
+              <%= form_for(:i, :url => valide_path(i), :method => "patch") do |f|%>
+                <%= f.radio_button :reservation_valide, 'valide' %> 
                 <%= f.label :reservation_valide, 'Valide', :value => 'valide' %>
                 <%= f.radio_button :reservation_valide, 'refuse' %>
                 <%= f.label :reservation_valide, 'Refuse', :value => 'refuse' %>
@@ -37,14 +37,13 @@
           <div class="resa1 m-3">
             <h1>Mes reservations à venir</h1>
             <% @res_rec_not_pending.each do |i| %>
-            <div class="infos">
-              <p>Planet : <%= i.planet.name %></p>
-              <p>Proprietaire: <%= i.planet.user.username %> </p>
-              <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
-                <p>Status <%= i.status %> </p>
+              <div class="infos">
+                <p>Planet : <%= i.planet.name %></p>
+                <p>Proprietaire: <%= i.planet.user.username %> </p>
+                <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
+                <p>Status : <%= render :partial => "colorstatus", locals: { i: i } %></p>
               </div>
-              <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ class DashboardController < ApplicationController
   end
 
   def reservation_valide
-    @reservation.status = params[:i][:reservation_valide]
+    @reservation.status = params[:i][:reservation_valide] unless params[:i].nil?
     @reservation.save
     redirect_to renter_path
   end
