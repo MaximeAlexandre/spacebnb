@@ -1,0 +1,8 @@
+
+<% if i.status == "pending" %>
+    <p style='color: yellow;'><%= i.status %></p>
+<% elsif i.status == "valide" %>
+    <p style='color: green;'><%= "Accepted" %></p>
+<% else %>
+    <p style='color: red;'><%= i.status %></p>
+<% end %>
