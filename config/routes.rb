@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get "/dashboard/tenant", to: "dashboard#tenant", as: :tenant
   get "/dashboard/tenant/:id/reservation_details" , to: "dashboard#reservation_details", as: :redetails
   patch "/dashboard/tenant/:id/", to: "dashboard#reservation_annul", as: :annul
+  patch "/dashboard/renter/:id/", to: "dashboard#reservation_valide", as: :valide
+  patch "/dashboard/renter/:id/", to: "dashboard#reservation_refuse", as: :refuse
 end
 
