@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :set_reservation, only: [:reservation_annul]
+  before_action :set_reservation, only: [:reservation_annul, :reservation_valide, :reservation_refuse]
 
   def renter
     mes_annonces
@@ -19,10 +19,24 @@ class DashboardController < ApplicationController
   def reservation_details
   end
 
+
+
+  def reservation_refuse
+    @reservation.status = "refuse"
+    @reservation.save
+    redirect_to renter_path
+  end
+
   def reservation_annul
     @reservation.status = "annule"
     @reservation.save
     redirect_to tenant_path
+  end
+
+  def reservation_valide
+    @reservation.status = "valide"
+    @reservation.save
+    redirect_to renter_path
   end
 
   private

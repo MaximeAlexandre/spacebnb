@@ -19,7 +19,7 @@
                     <p>Status <%= i.status %> </p>
                     <div class="btn btn-secondary active mb-3"><%= link_to "See reservation", redetails_path(i), :style=>'color: white;'%></div>
                     <div class="btn btn-secondary active mb-3">
-                    <%= link_to "Delete reservation", annul_path(i),  method: :patch, data: { confirm: 'Are you sure?' }, :style=>'color: white;'%></div>
+                    <%= link_to "Cancel reservation", annul_path(i),  method: :patch, data: { confirm: 'Are you sure?' }, :style=>'color: white;'%></div>
                   </div>
                 <% end %>
             </div>
@@ -39,7 +39,7 @@
                     <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %></p>
                     <p>Status <%= i.status %></p>
                     <div class="btn btn-secondary active mb-3"><%= link_to "See reservation", redetails_path(i), :style=>'color: white;'%></div>
-                  </div>
+                </div>
                 <% end %>
             </div>
           </div>

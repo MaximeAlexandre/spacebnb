@@ -8,16 +8,15 @@
         <%= f.input :address %>
         <%= f.input :description %>
         <%= f.input :price %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
+        <%= f.input :start_date, as: :string, input_html: { class: "flatpickr" } %>
+        <%= f.input :end_date, as: :string, input_html: { class: "flatpickr" } %>
+        <%= f.input :photo, as: :file %>
       </div>
       <div class="form-actions">
         <%= f.button :submit %>
       </div>
     <% end %>
 
-    <%= link_to 'Back', planets_path %>
+    <%= link_to 'Back', renter_path %>
   </div>
 </div>
-
-

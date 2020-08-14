@@ -1,6 +1,8 @@
 <div class="container col-5">
   <div class="card-trip">
-    <%# <%= image_tag "#{@planet.name.downcase.gsub(" ", "_")}.jpg", alt: "no image" %>
+    <% if @planet.photo.attached? %>
+      <%= cl_image_tag @planet.photo.key, crop: :scale %>
+    <% end %>
     <div class="card-trip-infos">
       <div class="card-name-description">
         <h2><%=  @planet.name %></h2>
@@ -16,5 +18,16 @@
       </div>
     </div>
   </div>
-  <%= link_to 'Edit planet', edit_planet_path(@planet) %> | <%= link_to 'Delete', planet_path(@planet), method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', planets_path %>
+  <div class="card-trip-reviews">
+    <h1> REVIEWS </h1>
+     <% if @reviews.empty? %>
+       <p> No reviews currently </p>
+     <% else %>
+      <% @reviews.each do |review| %>
+        <p> CONTENT: <%= review.content %> (NOTE: <%= review.note %>)
+      <% end %>
+     <% end %>
+  </div>
+  <%= link_to 'Back', planets_path %>
 </div>
+
