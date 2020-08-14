@@ -1,40 +1,26 @@
-<h1>DETAILS OF YOUR RESERVATION</h1>
 
-<div class="container">
-  <h2> Your have made a trip on </h2>
-  <h3> From <%= %> To <%=   %></h3>
-  <p> Give your feedback to Renter </p>
+<div class="container col-4 p-3 card devise-container">
+  <h1>DETAILS OF YOUR RESERVATION</h1>
+  <div>
+        <p> Planet : <%= @reservation.planet.name %> </p>
+        <p> From <%= @reservation.start_date.strftime('%m/%d/%Y') %> to <%= @reservation.end_date.strftime('%m/%d/%Y') %> </p>
+        <p> Status : <%= @reservation.status  %> </p>
+  </div>
+  <div class="form">
+    <%= simple_form_for [@reservation, @review] do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-inputs">
+        <%= f.input :note, collection: 0..5 %>
+        <%= f.input :content %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-
-  <%= simple_form_for [@reservation, @review] do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <div class="form-inputs">
-      <%= f.input :note, collection: 0..5 %>
-      <%= f.input :content %>
-    </div>
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
-
-  <% end %>
-  <button><%= link_to 'Back', tenant_path %></button>
+    <% end %>
+    <button><%= link_to 'Back', tenant_path %></button>
+  </div>
 </div>
 
 

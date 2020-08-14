@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_action :set_reservation, only: [:reservation_annul, :reservation_valide]
+  before_action :set_reservation, only: [:reservation_annul, :reservation_valide, :reservation_details]
 
   def renter
     mes_annonces
@@ -17,10 +17,12 @@ class DashboardController < ApplicationController
         reservations.each do |reservation|
           review = Review.find_by(reservation_id: reservation.id)
             @reviews << review unless review.nil?
+      raise
       end
   end
 
   def reservation_details
+    @planet = Planet.where(planet_id: @planet.id)
   end
 
   def reservation_valide
