@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'date'
 
+Review.destroy_all
+Reservation.destroy_all
+Planet.destroy_all
 User.destroy_all
 
 puts 'Creating 5 fake users with 2 fakes planet for each user...'
