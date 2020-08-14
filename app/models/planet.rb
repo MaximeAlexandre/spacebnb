@@ -2,6 +2,7 @@ class Planet < ApplicationRecord
   belongs_to :user
   has_many :reservations
   has_many :reviews, through: :reservations
+  has_one_attached :photo
 
   include AlgoliaSearch
 
@@ -15,6 +16,7 @@ class Planet < ApplicationRecord
   validates :price, presence: true
   validates :start_date, presence: true # format date a rajouter?
   validates :end_date, presence: true # format date a rajouter?
+  validates :photo, presence: true
   validate :end_date_after_start_date
 
   private

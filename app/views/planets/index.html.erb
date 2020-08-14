@@ -3,7 +3,9 @@
   <div class="container col-6">
     <% @planets.each do |planet| %>
       <div class="card-product">
-          <%= image_tag "#{planet.name.downcase.gsub(" ", "_")}.jpg" %>
+          <% if planet.photo.attached? %>
+            <%= cl_image_tag planet.photo.key, height: 120, width: 120, crop: :fill %>
+          <% end %>
           <div class="card-product-infos">
            <h2> <%=  link_to planet.name, planet_path(planet) %> </h2>
               <div class="card-product-price">
@@ -15,9 +17,4 @@
       </div>
     <% end %>
   </div>
-
 </div>
-
-
-
-
