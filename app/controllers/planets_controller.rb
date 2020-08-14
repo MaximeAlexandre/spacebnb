@@ -10,7 +10,6 @@ class PlanetsController < ApplicationController
     else
       @planets = Planet.all
     end
-    raise
   end
 
   def new
@@ -53,7 +52,7 @@ class PlanetsController < ApplicationController
   private
 
   def planet_params
-    params.require(:planet).permit(:name, :address, :description, :price, :start_date, :end_date)
+    params.require(:planet).permit(:name, :address, :description, :price, :start_date, :end_date, :photo)
   end
 
   def set_planet
