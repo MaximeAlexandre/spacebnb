@@ -1,2 +1,41 @@
-<h1>Reservation show</h1>
+<h1>DETAILS OF YOUR RESERVATION</h1>
+
+<div class="container">
+  <h2> Your have made a trip on </h2>
+  <h3> From <%= %> To <%=   %></h3>
+  <p> Give your feedback to Renter </p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+  <%= simple_form_for [@reservation, @review] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <%= f.input :note, collection: 0..5 %>
+      <%= f.input :content %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+  <% end %>
+  <button><%= link_to 'Back', tenant_path %></button>
+</div>
+
+
 

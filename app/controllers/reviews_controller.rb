@@ -1,13 +1,11 @@
 class ReviewsController < ApplicationController
 
-  def new
-    @review = Review.new
-  end
 
   def create
     @review = Review.new(review_params)
     @review.user = current_user
-    @reservation = Reservation.find(@review.reservation_id)
+    @reservation = Reservation.find(params[:reservation_id])
+    @review.reservation = @reservation
     if @review.save
       redirect_to reservation_path(@reservation)
     else
