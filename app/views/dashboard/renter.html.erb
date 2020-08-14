@@ -8,8 +8,7 @@
               <p> planet : <%= i.planet.name %></p>
               <p>proprietaire: <%= i.planet.user.username %> </p>
               <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
-              <p>Status <%= i.status %> </p>
-              
+              <p>Status : <%= render :partial => "colorstatus", locals: { i: i } %></p>
               <%= form_for(:i, :url => valide_path(i), :method => "patch") do |f|%>
                 <%= f.radio_button :reservation_valide, 'valide' %> 
                 <%= f.label :reservation_valide, 'Valide', :value => 'valide' %>
@@ -30,7 +29,7 @@
               <p> planet : <%= i.planet.name %></p>
               <p>proprietaire: <%= i.planet.user.username %> </p>
               <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
-              <p>Status <%= i.status %> </p>
+              <p>Status : <%= render :partial => "colorstatus", locals: { i: i } %></p>
           </div>
           <% end %>
         </div>
