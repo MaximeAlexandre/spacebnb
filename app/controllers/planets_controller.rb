@@ -4,7 +4,9 @@ class PlanetsController < ApplicationController
   def index
     session[:start_date] = params[:start_date_input]
     session[:end_date] = params[:end_date_input]
-    if params[:galaxy_input].present?
+    session[:galaxy_input] = params[:galaxy_input]
+
+    if session[:galaxy_input].present?
       sql_query = "planets.address @@ :galaxy_input"
       @planets = Planet.where(sql_query, galaxy_input: "%#{params[:galaxy_input]}%")
     else
@@ -28,12 +30,12 @@ class PlanetsController < ApplicationController
   end
 
   def show
-     @reviews = []
-     reservations = Reservation.where(planet_id: @planet.id)
-        reservations.each do |reservation|
-          review = Review.find_by(reservation_id: reservation.id)
-            @reviews << review unless review.nil?
-      end
+    @reviews = []
+    reservations = Reservation.where(planet_id: @planet.id)
+    reservations.each do |reservation|
+      review = Review.find_by(reservation_id: reservation.id)
+      @reviews << review unless review.nil?
+    end
   end
 
   def edit
