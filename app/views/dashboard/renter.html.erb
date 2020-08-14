@@ -1,72 +1,80 @@
 <div class="container">
-  <div class="flex-resa">
-      <div class="card col-6 card-body m-3">
-        <div class="resa1 m-3">
-        <h1>Mes reservations a venir</h1>
-          <% @res_rec_pending.each do |i| %>
-          <div class="infos">
-              <p> planet : <%= i.planet.name %></p>
-              <p>proprietaire: <%= i.planet.user.username %> </p>
+
+  <div class="scroll-button">
+    <div class="btn-resa m-3" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Mes réservations reçues</div>
+    <div class="btn-resa m-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Mes réservations à venir</div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+          <div class="resa1 m-3">
+            <h1>Réservations reçues</h1>
+            <% @res_rec_pending.each do |i| %>
+            <div class="infos">
+              <p>Planet : <%= i.planet.name %></p>
+              <p>Proprietaire: <%= i.planet.user.username %> </p>
               <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
-              <p>Status <%= i.status %> </p>
-              
-              <%= form_for(:i, :url => valide_path(i), :method => "patch") do |f|%>
-                <%= f.radio_button :reservation_valide, 'valide' %> 
+                <p>Status: <%= i.status %> </p>
+                <%= form_for(:i, :url => valide_path(i), :method => "patch") do |f|%>
+                <%= f.radio_button :reservation_valide, 'valide' %>
                 <%= f.label :reservation_valide, 'Valide', :value => 'valide' %>
                 <%= f.radio_button :reservation_valide, 'refuse' %>
                 <%= f.label :reservation_valide, 'Refuse', :value => 'refuse' %>
                 <%= f.submit "Status" %>
+                <% end %>
+              </div>
               <% end %>
+            </div>
           </div>
-          <% end %>
         </div>
       </div>
 
-      <div class="card col-6 card-body m-3">
-        <div class="resa1 m-3">
-        <h1>Mes reservations en attente</h1>
-          <% @res_rec_not_pending.each do |i| %>
-          <div class="infos">
-              <p> planet : <%= i.planet.name %></p>
-              <p>proprietaire: <%= i.planet.user.username %> </p>
+    <div class="col-6">
+      <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="card card-body">
+          <div class="resa1 m-3">
+            <h1>Mes reservations à venir</h1>
+            <% @res_rec_not_pending.each do |i| %>
+            <div class="infos">
+              <p>Planet : <%= i.planet.name %></p>
+              <p>Proprietaire: <%= i.planet.user.username %> </p>
               <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
-              <p>Status <%= i.status %> </p>
+                <p>Status <%= i.status %> </p>
+              </div>
+              <% end %>
+            </div>
           </div>
-          <% end %>
         </div>
       </div>
     </div>
 
-  <div type="button" class="btn mt-4 mb-4 btn-lg btn-new-planet">
-    <%= link_to "Add a new planet to rent", new_planet_path, :style=>'color: white;' %>
-  </div>
-
-    <h1 class="text-center">My planets</h1>
-
-  <div class="row mt-4 planets-cards">
-
-    <% @planets.each do |planet| %>
-    <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title></title><rect width="100%" height="100%" fill="#55595c"></rect><text x="42%" y="50%" fill="#eceeef" dy=".3em"><%= planet.name %></text></svg>
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                  <small class="text-muted"><%= planet.price %>$ per night</small>
-                  <small class="text-muted">La review</small>
-                  </div>
-                  <p class="card-text"><%= planet.description %></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group col-12">
-                      <button type="button" class="btn btn-sm btn-outline-secondary btn-resa"><%= link_to 'Detail planet', andetails_path(planet), :style=>'color: white;' %></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary btn-resa"><%= link_to 'Edit planet', edit_planet_path(planet), :style=>'color: white;' %></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary btn-resa"><%= link_to 'Delete', planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' }, :style=>'color: white;' %></button>
-                    </div>
-                  </div>
-                </div>
+      <div type="button" class="btn mt-4 mb-4 btn-lg btn-new-planet">
+        <%= link_to "Add a new planet to rent", new_planet_path, :style=>'color: white;' %>
+      </div>
+      <h1 class="text-center">My planets</h1>
+      <div class="row mt-4 planets-cards">
+        <% @planets.each do |planet| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title></title><rect width="100%" height="100%" fill="#55595c"></rect><text x="42%" y="50%" fill="#eceeef" dy=".3em"><%= planet.name %></text></svg>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <small class="text-muted"><%= planet.price %>$ per night</small>
+              <small class="text-muted">La review</small>
+            </div>
+            <p class="card-text"><%= planet.description %></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group col-12">
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-resa"><%= link_to 'Detail planet', andetails_path(planet), :style=>'color: white;' %></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-resa"><%= link_to 'Edit planet', edit_planet_path(planet), :style=>'color: white;' %></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary btn-resa"><%= link_to 'Delete', planet_path(planet), method: :delete, data: { confirm: 'Are you sure?' }, :style=>'color: white;' %></button>
               </div>
             </div>
-  <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
-</div>
-
-
