@@ -18,3 +18,17 @@
   </div>
   <%= link_to 'Edit planet', edit_planet_path(@planet) %> | <%= link_to 'Delete', planet_path(@planet), method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', planets_path %>
 </div>
+<div class="container">
+  <div class="card-product">
+    <h2> REVIEWS </h2>
+    <% reservation = Reservation.find_by(planet_id: @planet.id) %>
+    <% reviews = Review.find_by(reservation_id: reservation.id) %>
+
+    <% reviews.each do |review| %>
+    <%= review.note unless review_id.nil?%>
+    <%= review.content unless review_id.nil?%>
+
+    <% end %>
+
+  </div>
+</div>
