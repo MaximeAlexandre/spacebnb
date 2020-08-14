@@ -1,33 +1,41 @@
-<div class="container col-5">
-  <div class="card-trip">
-    <% if @planet.photo.attached? %>
-      <%= cl_image_tag @planet.photo.key, crop: :scale %>
-    <% end %>
-    <div class="card-trip-infos">
-      <div class="card-name-description">
-        <h2><%=  @planet.name %></h2>
-        <p><%= @planet.description %></p>
-      </div>
-      <div class="card-date-reservation">
-        <h4> Available from <%= @planet.start_date.strftime('%d/%m/%y') %> to <%= @planet.end_date.strftime('%d/%m/%y') %></h4>
-        <%= link_to 'Add a new reservation', new_planet_reservation_path(@planet), class: "btn btn-success" %>
-      </div>
-      <div class="card-trip-pricing">
-        <h4>Price/night</h4>
-        <h5><%= @planet.price %> €/guest</h5>
-      </div>
+<div class="container">
+
+  <div class="show-planet">
+
+  <div class="card m-3 col-7">
+
+    <div class="show-planet">
+
+    <div class="planet-img2 m-2">
+        <% if @planet.photo.attached? %>
+          <%= cl_image_tag @planet.photo.key, crop: :scale %>
+        <% end %>
+    </div>
+
+    <div class="card-trip-infos m-3">
+        <h1><%=  @planet.name %></h1>
+        <p>Description: <%= @planet.description %></p>
+        <p> Available from <%= @planet.start_date.strftime('%d/%m/%y') %> to <%= @planet.end_date.strftime('%d/%m/%y') %></p>
+        <p>Price/night</p>
+        <p><%= @planet.price %> €/guest</p>
+        <p><%= link_to 'Add a new reservation', new_planet_reservation_path(@planet), class: "search-button2 btn" %></p>
+    </div>
     </div>
   </div>
-  <div class="card-trip-reviews">
-    <h1> REVIEWS </h1>
+
+  <div class="card m-3 col-4">
+    <div class="m-3">
+    <h1 class="mb-3"> REVIEWS </h1>
      <% if @reviews.empty? %>
        <p> No reviews currently </p>
      <% else %>
       <% @reviews.each do |review| %>
-        <p> CONTENT: <%= review.content %> (NOTE: <%= review.note %>)
+        <p>⭐️ <%= review.note %>/5 Avis: <%= review.content %>
       <% end %>
      <% end %>
   </div>
-  <%= link_to 'Back', planets_path %>
+  </div>
+  </div>
+  <%= link_to 'Return to results', planets_path, class: "search-button2 btn" %>
 </div>
 
