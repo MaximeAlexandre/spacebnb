@@ -6,6 +6,7 @@
   </div>
 
   <div class="row">
+
     <div class="col-6">
       <div class="collapse multi-collapse" id="multiCollapseExample1">
         <div class="card card-body">
@@ -18,7 +19,7 @@
               <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
               <p>Status : <%= render :partial => "colorstatus", locals: { i: i } %></p>
               <%= form_for(:i, :url => valide_path(i), :method => "patch") do |f|%>
-                <%= f.radio_button :reservation_valide, 'valide' %> 
+                <%= f.radio_button :reservation_valide, 'valide' %>
                 <%= f.label :reservation_valide, 'Valide', :value => 'valide' %>
                 <%= f.radio_button :reservation_valide, 'refuse' %>
                 <%= f.label :reservation_valide, 'Refuse', :value => 'refuse' %>
@@ -30,6 +31,7 @@
           </div>
         </div>
       </div>
+
 
     <div class="col-6">
       <div class="collapse multi-collapse" id="multiCollapseExample2">
@@ -48,11 +50,16 @@
         </div>
       </div>
     </div>
+    </div>
 
       <div type="button" class="btn mt-4 mb-4 btn-lg btn-new-planet">
         <%= link_to "Add a new planet to rent", new_planet_path, :style=>'color: white;' %>
       </div>
-      <h1 class="text-center">My planets</h1>
+
+      <div class="my-planets ">
+        <h1>My planets</h1>
+      </div>
+
       <div class="row mt-4 planets-cards">
         <% @planets.each do |planet| %>
         <div class="col-md-4">
@@ -77,3 +84,5 @@
       <% end %>
     </div>
   </div>
+
+
