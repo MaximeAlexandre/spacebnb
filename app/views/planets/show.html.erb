@@ -16,20 +16,16 @@
       </div>
     </div>
   </div>
-  <%= link_to 'Edit planet', edit_planet_path(@planet) %> | <%= link_to 'Delete', planet_path(@planet), method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', planets_path %>
-</div>
-<div class="container">
-  <div class="card-product">
-    <h2> REVIEWS </h2>
-
-    <% reservations = Reservation.find_by(planet_id: @planet.id) %>
-      <% reservations.each do |reservation| %>
-        <% review = Review.find_by(reservation_id: reservation.id) %>
-
-          <%= review.note unless review.nil?%>
-          <%= review.content unless review.nil?%>
-
-    <% end %>
-
+  <div class="card-trip-reviews">
+    <h1> REVIEWS </h1>
+     <% if @reviews.empty? %>
+       <p> No reviews currently </p>
+     <% else %>
+      <% @reviews.each do |review| %>
+        <p> CONTENT: <%= review.content %> (NOTE: <%= review.note %>)
+      <% end %>
+     <% end %>
   </div>
+  <%= link_to 'Back', planets_path %>
 </div>
+

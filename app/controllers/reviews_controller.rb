@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user = current_user
-    @reservation = reservation.find(@review.reservation_id)
+    @reservation = Reservation.find(@review.reservation_id)
     if @review.save
       redirect_to reservation_path(@reservation)
     else

@@ -23,6 +23,12 @@ class PlanetsController < ApplicationController
   end
 
   def show
+     @reviews = []
+     reservations = Reservation.where(planet_id: @planet.id)
+        reservations.each do |reservation|
+          review = Review.find_by(reservation_id: reservation.id)
+            @reviews << review unless review.nil?
+      end
   end
 
   def edit
