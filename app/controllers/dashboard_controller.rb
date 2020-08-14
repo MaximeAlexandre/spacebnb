@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
 
   def tenant
     mes_reservations
-    
+
   end
 
   def annonce_details
@@ -17,6 +17,7 @@ class DashboardController < ApplicationController
   end
 
   def reservation_details
+
   end
 
 
@@ -54,7 +55,7 @@ class DashboardController < ApplicationController
 
   def reservations_received
     @planets_list = policy_scope(Planet).where(user_id: "#{current_user[:id]}")
-    @planets_ids = [] 
+    @planets_ids = []
     @planets_list.each { |i| @planets_ids << i.id }
 
     @res_rec = Reservation.all.where(planet_id: @planets_ids)

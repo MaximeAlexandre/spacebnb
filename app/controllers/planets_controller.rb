@@ -10,7 +10,7 @@ class PlanetsController < ApplicationController
     else
       @planets = Planet.all
     end
-    raise
+
   end
 
   def new
