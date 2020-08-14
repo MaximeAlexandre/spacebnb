@@ -18,7 +18,7 @@
               <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %>
               <p>Status : <%= render :partial => "colorstatus", locals: { i: i } %></p>
               <%= form_for(:i, :url => valide_path(i), :method => "patch") do |f|%>
-                <%= f.radio_button :reservation_valide, 'valide' %> 
+                <%= f.radio_button :reservation_valide, 'valide' %>
                 <%= f.label :reservation_valide, 'Valide', :value => 'valide' %>
                 <%= f.radio_button :reservation_valide, 'refuse' %>
                 <%= f.label :reservation_valide, 'Refuse', :value => 'refuse' %>
@@ -57,7 +57,12 @@
         <% @planets.each do |planet| %>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title></title><rect width="100%" height="100%" fill="#55595c"></rect><text x="42%" y="50%" fill="#eceeef" dy=".3em"><%= planet.name %></text></svg>
+          <% if planet.photo.attached? %>
+            <%= cl_image_tag planet.photo.key, height: 225, crop: :scale %>
+            <text x="42%" y="50%" fill="#eceeef" dy=".3em"><%= planet.name %></text>
+          <% else %>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title></title><rect width="100%" height="100%" fill="#55595c"></rect><text x="42%" y="50%" fill="#eceeef" dy=".3em"><%= planet.name %></text></svg>
+          <% end %>
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <small class="text-muted"><%= planet.price %>$ per night</small>
