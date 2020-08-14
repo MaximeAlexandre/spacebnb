@@ -11,10 +11,24 @@
         <%= link_to 'Add a new reservation', new_planet_reservation_path(@planet), class: "btn btn-success" %>
       </div>
       <div class="card-trip-pricing">
-        <h4>Price/night</h4>
-        <h5><%= @planet.price %> €/guest</h5>
+          <h4>Price/night</h4>
+          <h5><%= @planet.price %> €/guest</h5>
       </div>
     </div>
   </div>
+  <div class="card-trip-reviews">
+    <h1> REVIEWS </h1>
+     <% if @reviews.empty? %>
+       <p> No reviews currently </p>
+     <% else %>
+      <% @reviews.each do |review| %>
+        <p> CONTENT: <%= review.content %> (NOTE: <%= review.note %>)
+      <% end %>
+     <% end %>
+  </div>
   <%= link_to 'Edit planet', edit_planet_path(@planet) %> | <%= link_to 'Delete', planet_path(@planet), method: :delete, data: { confirm: 'Are you sure?' } %> | <%= link_to 'Back', renter_path %>
 </div>
+
+
+
+
