@@ -21,12 +21,13 @@
 <div class="container">
   <div class="card-product">
     <h2> REVIEWS </h2>
-    <% reservation = Reservation.find_by(planet_id: @planet.id) %>
-    <% reviews = Review.find_by(reservation_id: reservation.id) %>
 
-    <% reviews.each do |review| %>
-    <%= review.note unless review_id.nil?%>
-    <%= review.content unless review_id.nil?%>
+    <% reservations = Reservation.find_by(planet_id: @planet.id) %>
+      <% reservations.each do |reservation| %>
+        <% review = Review.find_by(reservation_id: reservation.id) %>
+
+          <%= review.note unless review.nil?%>
+          <%= review.content unless review.nil?%>
 
     <% end %>
 
