@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :reservations
-  has_many :planets
-  has_many :reviews
+  has_many :reservations, dependent: :destroy
+  has_many :planets, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
