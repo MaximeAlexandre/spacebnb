@@ -16,7 +16,7 @@
                     <p>Planet : <%= i.planet.name %> </p>
                     <p>Proprietaire: <%= i.planet.user.username %> </p>
                     <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %></p>
-                    <p>Status <%= i.status %> </p>
+                    <p>Status : <%= render :partial => "colorstatus", locals: { i: i } %></p>
                     <div class="btn btn-secondary active mb-3"><%= link_to "See reservation", reservation_path(i), :style=>'color: white;'%></div>
                     <div class="btn btn-secondary active mb-3">
                     <%= link_to "Cancel reservation", annul_path(i),  method: :patch, data: { confirm: 'Are you sure?' }, :style=>'color: white;'%></div>
@@ -37,7 +37,7 @@
                     <p>Planet : <%= i.planet.name %> </p>
                     <p>Proprietaire: <%= i.planet.user.username %> </p>
                     <p>Du <%= i.start_date.strftime('%m/%d/%Y') %> au <%= i.end_date.strftime('%m/%d/%Y') %></p>
-                    <p>Status <%= i.status %></p>
+                    <p>Status : <%= render :partial => "colorstatus", locals: { i: i } %></p>
                     <div class="btn btn-secondary active mb-3"><%= link_to "See reservation", reservation_path(i), :style=>'color: white;'%></div>
                 </div>
                 <% end %>
