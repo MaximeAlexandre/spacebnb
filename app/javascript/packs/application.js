@@ -27,10 +27,12 @@ import "bootstrap";
 import flatpickr from "flatpickr";
 // import algoliasearch from 'algoliasearch';
 import { initFlatpickr } from '../plugins/init_flatpickr';
+import { initParticles } from '../plugins/init_particles';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initFlatpickr();
+  initParticles();
 });
 
 // const results = document.querySelector(".results");
